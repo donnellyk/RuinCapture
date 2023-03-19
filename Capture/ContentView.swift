@@ -1,26 +1,53 @@
-//
-//  ContentView.swift
-//  Capture
-//
-//  Created by Kevin Donnelly on 3/18/23.
-//
-
 import SwiftUI
+import SwiftDown
 
 struct ContentView: View {
-    var body: some View {
+  enum FocusField: Hashable {
+    case field
+  }
+  
+  enum Step : Hashable {
+    case entry
+    case refine
+  }
+  
+  @FocusState private var focusedField: FocusField?
+  @State private var text: String = "### Hello There"
+  @State private var step: Step = .entry
+  
+  var body: some View {
+    ZStack {
+      switch step {
+      case .entry:
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+          SwiftDownEditor(text: $text)
+            .insetsSize(10)
+            .theme(Theme.BuiltIn.defaultLight.theme())
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .focused($focusedField, equals: .field)
+            .task {
+              focusedField = .field
+            }
+          HStack {
+            Spacer()
+            Button("⌘-Enter") {
+              step = .refine
+            }
+            .keyboardShortcut(.return)
+            .buttonStyle(.plain)
+          }
         }
-        .padding()
+        .padding(10)
+      case .refine:
+        Text(text)
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+      }
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
