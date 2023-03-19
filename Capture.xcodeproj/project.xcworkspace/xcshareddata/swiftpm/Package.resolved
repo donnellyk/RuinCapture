@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "down",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnxnguyen/Down.git",
-      "state" : {
-        "revision" : "f34b166be1f1db4aa8f573067e901d72f2a6be57",
-        "version" : "0.11.0"
-      }
-    },
-    {
       "identity" : "hotkey",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/soffes/HotKey",
@@ -28,12 +19,21 @@
       }
     },
     {
-      "identity" : "swiftdown",
+      "identity" : "swift-cmark",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/qeude/SwiftDown.git",
+      "location" : "https://github.com/apple/swift-cmark.git",
       "state" : {
-        "revision" : "53bcb94de74fb4a48939e8b1e35f124f0db5ce70",
-        "version" : "0.2.2"
+        "branch" : "gfm",
+        "revision" : "86aeb491675de6f077a3a6df6cbcac1a25dcbee1"
+      }
+    },
+    {
+      "identity" : "swift-markdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-markdown",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ad0b81fed55c4a72fdaeb5535884bd2886de96f4"
       }
     }
   ],

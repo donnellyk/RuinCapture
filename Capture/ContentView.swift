@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftDown
 
 struct ContentView: View {
   enum FocusField: Hashable {
@@ -11,6 +10,8 @@ struct ContentView: View {
     case refine
   }
   
+  @AppStorage("ruin-filepath") var filepath: URL?
+  @AppStorage("ruin-append") var stringAppend: String = ""
   @FocusState private var focusedField: FocusField?
   @State private var text: String = "### Hello There"
   @State private var step: Step = .entry
@@ -20,9 +21,7 @@ struct ContentView: View {
       switch step {
       case .entry:
         VStack {
-          SwiftDownEditor(text: $text)
-            .insetsSize(10)
-            .theme(Theme.BuiltIn.defaultLight.theme())
+          TextEditor(text: $text)
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .focused($focusedField, equals: .field)
             .task {
@@ -31,7 +30,10 @@ struct ContentView: View {
           HStack {
             Spacer()
             Button("⌘-Enter") {
-              step = .refine
+              guard let url = filepath else { return }
+              
+              FileWriter.write(filepath: url, appendAfter: stringAppend, content: text)
+//              step = .refine
             }
             .keyboardShortcut(.return)
             .buttonStyle(.plain)

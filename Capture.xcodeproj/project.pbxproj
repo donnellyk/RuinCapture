@@ -12,7 +12,7 @@
 		0A2A7B8629C74FC700BBDA31 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A7B8529C74FC700BBDA31 /* VisualEffectView.swift */; };
 		0A2A7B8929C788B800BBDA31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A7B8829C788B800BBDA31 /* SettingsView.swift */; };
 		0A2A7B8C29C7C56D00BBDA31 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A7B8B29C7C56D00BBDA31 /* FileWriter.swift */; };
-		0AAD267D29C66E80003764FB /* SwiftDown in Frameworks */ = {isa = PBXBuildFile; productRef = 0AAD267C29C66E80003764FB /* SwiftDown */; };
+		0A2A7B9129C7CAA400BBDA31 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2A7B9029C7CAA400BBDA31 /* Markdown */; };
 		0AAD268029C6796F003764FB /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 0AAD267F29C6796F003764FB /* KeyboardShortcuts */; };
 		0AAD268329C67B72003764FB /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 0AAD268229C67B72003764FB /* HotKey */; };
 		0AD5C73229C66A2500D4C07F /* CaptureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5C73129C66A2500D4C07F /* CaptureApp.swift */; };
@@ -66,8 +66,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AAD268329C67B72003764FB /* HotKey in Frameworks */,
-				0AAD267D29C66E80003764FB /* SwiftDown in Frameworks */,
 				0AAD268029C6796F003764FB /* KeyboardShortcuts in Frameworks */,
+				0A2A7B9129C7CAA400BBDA31 /* Markdown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,9 +199,9 @@
 			);
 			name = Capture;
 			packageProductDependencies = (
-				0AAD267C29C66E80003764FB /* SwiftDown */,
 				0AAD267F29C6796F003764FB /* KeyboardShortcuts */,
 				0AAD268229C67B72003764FB /* HotKey */,
+				0A2A7B9029C7CAA400BBDA31 /* Markdown */,
 			);
 			productName = Capture;
 			productReference = 0AD5C72E29C66A2500D4C07F /* Capture.app */;
@@ -276,9 +276,9 @@
 			);
 			mainGroup = 0AD5C72529C66A2500D4C07F;
 			packageReferences = (
-				0AAD267B29C66E80003764FB /* XCRemoteSwiftPackageReference "SwiftDown" */,
 				0AAD267E29C6796F003764FB /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				0AAD268129C67B72003764FB /* XCRemoteSwiftPackageReference "HotKey" */,
+				0A2A7B8F29C7CAA400BBDA31 /* XCRemoteSwiftPackageReference "swift-markdown" */,
 			);
 			productRefGroup = 0AD5C72F29C66A2500D4C07F /* Products */;
 			projectDirPath = "";
@@ -648,12 +648,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0AAD267B29C66E80003764FB /* XCRemoteSwiftPackageReference "SwiftDown" */ = {
+		0A2A7B8F29C7CAA400BBDA31 /* XCRemoteSwiftPackageReference "swift-markdown" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/qeude/SwiftDown.git";
+			repositoryURL = "https://github.com/apple/swift-markdown";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 		0AAD267E29C6796F003764FB /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
@@ -675,10 +675,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0AAD267C29C66E80003764FB /* SwiftDown */ = {
+		0A2A7B9029C7CAA400BBDA31 /* Markdown */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0AAD267B29C66E80003764FB /* XCRemoteSwiftPackageReference "SwiftDown" */;
-			productName = SwiftDown;
+			package = 0A2A7B8F29C7CAA400BBDA31 /* XCRemoteSwiftPackageReference "swift-markdown" */;
+			productName = Markdown;
 		};
 		0AAD267F29C6796F003764FB /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
